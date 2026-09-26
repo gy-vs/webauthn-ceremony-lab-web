@@ -1,0 +1,32 @@
+{
+  "name": "webauthn-ceremony-lab",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Browser WebAuthn registration/authentication ceremony simulation workbench with a software test authenticator",
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build": "npm run typecheck && vite build",
+    "start": "tsx server/index.ts",
+    "typecheck": "tsc -p tsconfig.server.json && tsc -p tsconfig.app.json",
+    "test:e2e": "tsx scripts/e2e.ts",
+    "test:device": "tsx scripts/device.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.17.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.11"
+  }
+}
